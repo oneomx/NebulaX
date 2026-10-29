@@ -14,11 +14,8 @@ diagnose, audit, and automate your servers without your data ever leaving your m
 ![Tests](https://img.shields.io/badge/tests-139%20passed-brightgreen)
 [![License](https://img.shields.io/badge/license-Source%20Available-lightgrey)](./LICENSE)
 
-*A modern alternative to Xshell & MobaXterm, supercharged with AI.*
+<img width="1428" height="906" alt="image" src="https://github.com/user-attachments/assets/ba0005f9-ef11-4398-beca-85802acad30f" />
 
-</div>
-
----
 
 ## Highlights
 
