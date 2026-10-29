@@ -1,0 +1,42 @@
+NebulaX Source-Available License
+Copyright (c) 2026 NebulaX. All rights reserved.
+
+This repository makes the NebulaX source code publicly available for
+reference, evaluation, and academic purposes ONLY. It is NOT an
+open-source license as defined by the Open Source Initiative (OSI).
+
+GRANT
+=====
+You are permitted to:
+  - View, read, and study the source code.
+  - Build and run the software locally for personal evaluation.
+  - Fork the repository for private, non-commercial study.
+
+RESTRICTIONS
+============
+You may NOT, without prior written permission from the copyright holder:
+  - Use the source code, in whole or in part, for any commercial purpose,
+    including selling, sublicensing, or offering it as a paid service.
+  - Distribute binaries or installers derived from this code outside the
+    official Releases channel.
+  - Remove or alter copyright notices, license terms, or branding.
+  - Publish activation-code generators, license-key bypasses, or any
+    tool intended to circumvent the software's licensing mechanism.
+
+NO WARRANTY
+===========
+The software is provided "as is", without warranty of any kind, express
+or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose, and noninfringement. In no event shall
+the copyright holder be liable for any claim, damages, or other liability
+arising from the use of this software.
+
+ACTIVATION & KEYS
+=================
+The HMAC signing key used by the offline activation system is intentionally
+NOT included in this repository (only a placeholder constant is present).
+Any keys found elsewhere are confidential property of the copyright holder
+and may not be used to generate activation codes without authorization.
+
+For licensing inquiries, commercial use, or redistribution requests,
+please open an issue in this repository.

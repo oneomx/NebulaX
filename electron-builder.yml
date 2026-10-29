@@ -1,0 +1,41 @@
+appId: com.nebula.ssh
+npmRebuild: false
+productName: NebulaX
+# 使用本地 node_modules/electron/dist（与 dev 运行同一份二进制），离线打包、避免 GitHub 下载失败
+electronDist: node_modules/electron/dist
+directories:
+  output: release
+files:
+  - dist/**
+  - dist-electron/**
+  - package.json
+# 原生模块（NAPI 预编译 .node）需解包出 asar 才能加载：
+# @serialport = 串口；@lydell/node-pty = ConPTY 本地终端
+asarUnpack:
+  - "**/node_modules/@serialport/**"
+  - "**/node_modules/@lydell/**"
+mac:
+  category: public.app-category.developer-tools
+  target:
+    - dmg
+win:
+  target:
+    - nsis
+  # 专属应用图标（AI 生成的星云 X 图标，多尺寸 ICO）
+  icon: build/icon.ico
+# NSIS 交互式安装：可选安装目录 + 桌面快捷方式 + 中文界面
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+  shortcutName: NebulaX
+  installerLanguages:
+    - zh_CN
+  language: 2052
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Development

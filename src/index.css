@@ -1,0 +1,140 @@
+@import './styles/themes.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-feature-settings: 'kern', 'liga', 'tnum';
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+.xterm .xterm-viewport {
+  background: transparent !important;
+}
+
+/* draggable titlebar */
+.drag-region {
+  -webkit-app-region: drag;
+}
+.drag-region-no {
+  -webkit-app-region: no-drag;
+}
+
+/* glass panels — 实色面板，克制 */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+}
+
+.glass-light {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+}
+
+/* 细线描边卡片：发丝线效果 */
+.neon-border {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+}
+
+.neon-border-hover:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-elevated-hover);
+}
+
+/* 标题强调色：实色，不用渐变 */
+.gradient-text {
+  color: var(--accent);
+}
+
+.tab-active {
+  background: var(--bg-elevated);
+  border-top: 2px solid var(--accent);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.tab-inactive {
+  background: transparent;
+  border-top: 2px solid transparent;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+/* 背景网格：默认关闭 */
+.bg-mesh {
+  background-image: none;
+}
+
+input, textarea, select {
+  outline: none;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+  box-shadow: none;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.cmd-code {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+}
+
+.fade-enter {
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* 黑客主题：轻微扫描线氛围叠加在主内容区 */
+html[data-theme='hacker'] .bg-mesh {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(52, 211, 153, 0.015) 3px,
+      rgba(52, 211, 153, 0.015) 4px
+    );
+}
+
+/* 数字等宽（数据面板） */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}

@@ -1,0 +1,48 @@
+{
+  "name": "ai-ssh-manager",
+  "version": "1.10.0",
+  "description": "AI-powered SSH server management desktop app",
+  "main": "dist-electron/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"wait-on tcp:5173 && electron .\"",
+    "dev:web": "vite",
+    "build": "vite build && npm run build:electron",
+    "build:electron": "tsc electron/ai.ts electron/aitracker.ts electron/patrol.ts electron/ai/audit.ts electron/ai/agent.ts electron/ai/forecast.ts electron/ai/rag.ts electron/ai/scriptgen.ts electron/ssh.ts electron/sftp.ts electron/dbconsole.ts electron/vault.ts electron/main.ts electron/preload.ts --outDir dist-electron --module commonjs --target es2022 --esModuleInterop --skipLibCheck && node -e \"const fs=require('fs');fs.renameSync('dist-electron/preload.js','dist-electron/preload.cjs');fs.writeFileSync('dist-electron/package.json','{\\\"type\\\":\\\"commonjs\\\"}')\"",
+    "build:win": "npm run build && electron-builder --win",
+    "build:mac": "npm run build && electron-builder --mac",
+    "build:linux": "npm run build && electron-builder --linux",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "start": "electron .",
+    "test": "npm run build:electron && node --test tests/*.test.cjs"
+  },
+  "dependencies": {
+    "@lydell/node-pty": "^1.2.0-beta.15",
+    "lucide-react": "^0.469.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "serialport": "^13.0.0",
+    "ssh2": "^1.16.0",
+    "xterm": "^5.3.0",
+    "xterm-addon-fit": "^0.8.0",
+    "xterm-addon-search": "^0.13.0",
+    "xterm-addon-web-links": "^0.9.0",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/ssh2": "^1.15.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.0",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3",
+    "wait-on": "^8.0.1"
+  }
+}
